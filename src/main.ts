@@ -5,6 +5,7 @@ import banner from './assets/banner.jpg'
 import printingPress from './assets/printing-press.jpg'
 import weddingCards from './assets/wedding-cards.jpg'
 import heroImg from './assets/hero.png'
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 <header>
@@ -12,18 +13,25 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <nav>
     <h1><a href="#">Faisal Print Studio</a></h1>
 
-    <ul>
-      <li>Home</li>
-      <li>Services</li>
-      <li>Portfolio</li>
-      <li>Contact</li>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul id="navLinks">
+      <li><a href="#">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
-
-  <p>Professional Printing Solutions</p>
-<img src="${heroImg}" alt="Printing" class="hero-image">
 </header>
 
+<section class="intro">
+  <p>Professional Printing Solutions</p>
+  <img src="${heroImg}" alt="Printing" class="header-hero-img">
+</section>
 
 <section class="hero">
 
@@ -38,15 +46,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </p>
 
     <div class="hero-buttons">
-
-      <a href="https://wa.me/923052010137" target="_blank">
-        <button>Get a Quote</button>
-      </a>
-
-      <a href="#portfolio">
-        <button class="secondary-btn">View Portfolio</button>
-      </a>
-
+      <a href="https://wa.me/923052010137" target="_blank" class="btn">Get a Quote</a>
+      <a href="#portfolio" class="btn secondary-btn">View Portfolio</a>
     </div>
 
   </div>
@@ -56,7 +57,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 
 </section>
-<section class="services">
+
+<section class="services" id="services">
 
   <h2>Our Services</h2>
 
@@ -67,12 +69,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <p>Premium quality visiting cards for your brand.</p>
     </div>
 
-
     <div class="card">
       <h3>Flyers & Posters</h3>
       <p>High quality marketing prints.</p>
     </div>
-
 
     <div class="card">
       <h3>Custom Printing</h3>
@@ -82,7 +82,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 
 </section>
-
 
 
 <section class="gallery" id="portfolio">
@@ -124,6 +123,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 
 </section>
+
 <section class="about">
 
   <h2>About Faisal Print Studio</h2>
@@ -155,7 +155,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 </section>
 
-<section class="contact">
+<section class="contact" id="contact">
 
   <h2>Contact Us</h2>
 
@@ -163,19 +163,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     Get your printing work done with Faisal Print Studio.
   </p>
 
-  <section class="contact">
-
-  <h2>Contact Us</h2>
-
-  <p>
-    Get your printing work done with Faisal Print Studio.
-  </p>
-
-  <a href="https://wa.me/923052010137" target="_blank">
-    <button>WhatsApp Us</button>
-  </a>
-
-</section>
+  <a href="https://wa.me/923052010137" target="_blank" class="btn">WhatsApp Us</a>
 
 </section>
 
@@ -207,11 +195,21 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     © 2026 Faisal Print Studio. All Rights Reserved.
   </p>
 
-
-
-
 </footer>
 
-
-
 `
+
+const menuToggle = document.querySelector<HTMLButtonElement>('#menuToggle')!
+const navLinks = document.querySelector<HTMLUListElement>('#navLinks')!
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open')
+  menuToggle.classList.toggle('active')
+})
+
+navLinks.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open')
+    menuToggle.classList.remove('active')
+  })
+})
