@@ -29,31 +29,33 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
   <div class="hero-content">
 
-    <h2>Professional Printing Solutions</h2>
+    <h2>Bring Your Ideas to Life with Premium Printing</h2>
 
     <p>
-      High-quality business cards, brochures, flyers, banners, wedding cards
-      and custom printing services with fast delivery and premium finishing.
+      Faisal Print Studio provides premium business cards, flyers, banners,
+      wedding cards and custom printing with exceptional quality, fast
+      turnaround and affordable prices.
     </p>
 
     <div class="hero-buttons">
 
-  <a href="https://wa.me/923052010137" target="_blank">
-    <button>Get a Quote</button>
-  </a>
+      <a href="https://wa.me/923052010137" target="_blank">
+        <button>Get a Quote</button>
+      </a>
 
-  <a href="#portfolio">
-  <button class="secondary-btn">View Portfolio</button>
-</a>
+      <a href="#portfolio">
+        <button class="secondary-btn">View Portfolio</button>
+      </a>
 
-</div>
+    </div>
+
+  </div>
 
   <div class="hero-image">
     <img src="${printingPress}" alt="Printing Press">
   </div>
 
 </section>
-
 <section class="services">
 
   <h2>Our Services</h2>
