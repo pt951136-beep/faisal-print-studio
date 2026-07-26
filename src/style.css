@@ -271,9 +271,10 @@ button:hover {
 }
 
 .gallery-items {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
   margin-top: 40px;
 }
 
@@ -283,6 +284,8 @@ button:hover {
   overflow: hidden;
   border: 1px solid rgba(178, 107, 255, 0.15);
   transition: 0.3s ease;
+  width: 100%;
+  max-width: 650px;
 }
 
 .work:hover {
@@ -293,19 +296,24 @@ button:hover {
 
 .work img {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
+  height: auto;
+  max-height: 450px;
+  object-fit: contain;
+  background: #000;
   display: block;
 }
 
 .work h3 {
   color: var(--gold-light);
   padding: 20px 20px 10px;
+  font-size: 24px;
 }
 
 .work p {
   color: var(--text-muted);
-  padding: 0 20px 20px;
+  padding: 0 20px 25px;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 
