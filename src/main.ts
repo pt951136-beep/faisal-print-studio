@@ -10,7 +10,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 <header>
 
   <nav>
-    <h1>Faisal Print Studio</h1>
+    <h1><a href="#">Faisal Print Studio</a></h1>
 
     <ul>
       <li>Home</li>

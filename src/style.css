@@ -17,37 +17,46 @@ body {
 /* Header */
 
 header {
-  background: #000;
-  padding-bottom: 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(245, 180, 0, 0.15);
 }
 
 nav {
+  max-width: 1200px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 60px;
+  padding: 20px 40px;
 }
 
-nav h1 {
+nav h1 a {
   color: #f5b400;
+  text-decoration: none;
   font-size: 32px;
+  font-weight: 700;
 }
 
 nav ul {
   display: flex;
-  gap: 30px;
+  gap: 35px;
   list-style: none;
 }
 
-nav li {
-  cursor: pointer;
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
   transition: 0.3s;
 }
 
-nav li:hover {
+nav ul li a:hover {
   color: #f5b400;
 }
-
 header p {
   text-align: center;
   color: #ccc;
