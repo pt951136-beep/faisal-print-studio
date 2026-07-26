@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --gold: #f5b400;
+  --gold-light: #ffd35c;
+  --purple: #8b2fd6;
+  --purple-light: #b26bff;
+  --bg-dark: #0a0710;
+  --bg-panel: #15101f;
+  --bg-panel-2: #1c1428;
+  --text-muted: #cfc7db;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -6,11 +19,15 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
 }
 
 body {
-  background: #0b0b0b;
+  background: var(--bg-dark);
   color: white;
 }
 
@@ -18,8 +35,8 @@ body {
 /* Header */
 
 header {
-  background: rgba(0, 0, 0, 0.95);
-  border-bottom: 1px solid rgba(245, 180, 0, 0.15);
+  background: rgba(10, 5, 20, 0.97);
+  border-bottom: 1px solid rgba(245, 180, 0, 0.2);
 }
 
 nav {
@@ -32,10 +49,14 @@ nav {
 }
 
 nav h1 a {
-  color: #f5b400;
+  background: linear-gradient(90deg, var(--gold-light), var(--gold), var(--purple-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   text-decoration: none;
   font-size: 32px;
   font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 nav ul {
@@ -49,20 +70,40 @@ nav ul li a {
   text-decoration: none;
   font-weight: 500;
   transition: 0.3s;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--purple-light));
+  transition: width 0.3s ease;
 }
 
 nav ul li a:hover {
-  color: #f5b400;
+  color: var(--gold-light);
+}
+
+nav ul li a:hover::after {
+  width: 100%;
 }
 
 .intro {
   text-align: center;
   padding: 40px 20px 0;
+  background: radial-gradient(ellipse at top, rgba(139, 47, 214, 0.15), transparent 60%);
 }
 
 .intro p {
-  color: #ccc;
+  color: var(--gold-light);
   font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .header-hero-img {
@@ -71,6 +112,7 @@ nav ul li a:hover {
   display: block;
   margin: 20px auto 0;
   border-radius: 15px;
+  filter: drop-shadow(0 15px 35px rgba(139, 47, 214, 0.35));
 }
 
 
@@ -79,29 +121,36 @@ nav ul li a:hover {
 .btn,
 button {
   display: inline-block;
-  background: #f5b400;
-  color: #0b0b0b;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: #1a1200;
   border: none;
   padding: 14px 32px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
   border-radius: 30px;
   cursor: pointer;
   text-decoration: none;
   text-align: center;
   transition: 0.3s ease;
+  box-shadow: 0 8px 25px rgba(245, 180, 0, 0.25);
 }
 
 .btn:hover,
 button:hover {
   transform: translateY(-3px);
-  opacity: 0.9;
+  box-shadow: 0 12px 30px rgba(245, 180, 0, 0.4);
 }
 
 .secondary-btn {
   background: transparent;
   color: white;
-  border: 2px solid white;
+  border: 2px solid var(--purple-light);
+  box-shadow: none;
+}
+
+.secondary-btn:hover {
+  background: rgba(178, 107, 255, 0.12);
+  box-shadow: 0 8px 25px rgba(139, 47, 214, 0.3);
 }
 
 
@@ -114,7 +163,9 @@ button:hover {
   gap: 50px;
   padding: 80px 8%;
   flex-wrap: wrap;
-  background: linear-gradient(135deg, #222, #000);
+  background: radial-gradient(circle at 20% 20%, rgba(139, 47, 214, 0.2), transparent 45%),
+              radial-gradient(circle at 80% 80%, rgba(245, 180, 0, 0.12), transparent 45%),
+              linear-gradient(135deg, #150f22, #0a0710);
 }
 
 .hero-content {
@@ -125,12 +176,17 @@ button:hover {
 .hero-content h2 {
   font-size: 48px;
   margin-bottom: 20px;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #ffffff, var(--gold-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero-content p {
   font-size: 18px;
   line-height: 1.8;
-  color: #ddd;
+  color: var(--text-muted);
   margin-bottom: 30px;
 }
 
@@ -150,6 +206,7 @@ button:hover {
   width: 100%;
   max-width: 500px;
   border-radius: 15px;
+  box-shadow: 0 20px 50px rgba(139, 47, 214, 0.3);
 }
 
 
@@ -158,11 +215,13 @@ button:hover {
 .services {
   padding: 70px 30px;
   text-align: center;
+  background: var(--bg-dark);
 }
 
 .services h2 {
   font-size: 36px;
   margin-bottom: 40px;
+  color: var(--gold-light);
 }
 
 .cards {
@@ -173,27 +232,27 @@ button:hover {
 }
 
 .card {
-  background: #181818;
+  background: linear-gradient(160deg, var(--bg-panel), var(--bg-panel-2));
   padding: 35px;
   width: 300px;
   border-radius: 15px;
-  border: 1px solid #333;
+  border: 1px solid rgba(245, 180, 0, 0.15);
   transition: 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  border-color: #f5b400;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+  border-color: var(--gold);
+  box-shadow: 0 15px 35px rgba(139, 47, 214, 0.25);
 }
 
 .card h3 {
-  color: #f5b400;
+  color: var(--gold-light);
   margin-bottom: 15px;
 }
 
 .card p {
-  color: #ccc;
+  color: var(--text-muted);
 }
 
 
@@ -202,12 +261,13 @@ button:hover {
 .gallery {
   padding: 70px 30px;
   text-align: center;
-  background: #111;
+  background: linear-gradient(180deg, #0a0710, #150f22);
 }
 
 .gallery h2 {
   font-size: 36px;
   margin-bottom: 40px;
+  color: var(--gold-light);
 }
 
 .gallery-items {
@@ -218,15 +278,17 @@ button:hover {
 }
 
 .work {
-  background: #1f1f1f;
+  background: linear-gradient(160deg, var(--bg-panel), var(--bg-panel-2));
   border-radius: 15px;
   overflow: hidden;
+  border: 1px solid rgba(178, 107, 255, 0.15);
   transition: 0.3s ease;
 }
 
 .work:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+  border-color: var(--purple-light);
+  box-shadow: 0 15px 35px rgba(139, 47, 214, 0.3);
 }
 
 .work img {
@@ -237,12 +299,12 @@ button:hover {
 }
 
 .work h3 {
-  color: #f5b400;
+  color: var(--gold-light);
   padding: 20px 20px 10px;
 }
 
 .work p {
-  color: #ccc;
+  color: var(--text-muted);
   padding: 0 20px 20px;
 }
 
@@ -252,19 +314,22 @@ button:hover {
 .about {
   padding: 70px 30px;
   text-align: center;
-  background: #111;
+  background: var(--bg-panel);
 }
 
 .about h2 {
   font-size: 36px;
   margin-bottom: 20px;
-  color: #f5b400;
+  background: linear-gradient(90deg, var(--gold-light), var(--purple-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .about > p {
   max-width: 700px;
   margin: auto;
-  color: #ccc;
+  color: var(--text-muted);
   font-size: 18px;
   line-height: 1.6;
 }
@@ -278,19 +343,26 @@ button:hover {
 }
 
 .features div {
-  background: #181818;
+  background: var(--bg-panel-2);
   padding: 30px;
   width: 280px;
   border-radius: 15px;
+  border: 1px solid rgba(245, 180, 0, 0.1);
+  transition: 0.3s ease;
+}
+
+.features div:hover {
+  border-color: var(--purple-light);
+  transform: translateY(-5px);
 }
 
 .features h3 {
-  color: #f5b400;
+  color: var(--gold-light);
   margin-bottom: 15px;
 }
 
 .features p {
-  color: #ccc;
+  color: var(--text-muted);
 }
 
 
@@ -299,16 +371,17 @@ button:hover {
 .contact {
   padding: 70px 30px;
   text-align: center;
+  background: radial-gradient(ellipse at center, rgba(139, 47, 214, 0.15), var(--bg-dark) 65%);
 }
 
 .contact h2 {
   font-size: 36px;
   margin-bottom: 15px;
-  color: #f5b400;
+  color: var(--gold-light);
 }
 
 .contact p {
-  color: #ccc;
+  color: var(--text-muted);
   margin-bottom: 30px;
 }
 
@@ -316,8 +389,9 @@ button:hover {
 /* Footer */
 
 footer {
-  background: #111;
+  background: #0d0815;
   padding: 50px 30px 20px;
+  border-top: 1px solid rgba(245, 180, 0, 0.1);
 }
 
 .footer-content {
@@ -330,21 +404,21 @@ footer {
 }
 
 .footer-content h3 {
-  color: #f5b400;
+  color: var(--gold-light);
   margin-bottom: 12px;
 }
 
 .footer-content p {
-  color: #ccc;
+  color: var(--text-muted);
   margin-bottom: 6px;
 }
 
 .copyright {
   text-align: center;
-  color: #888;
+  color: #8a7f9c;
   font-size: 14px;
   padding-top: 20px;
-  border-top: 1px solid #222;
+  border-top: 1px solid #241a30;
 }
 
 
@@ -362,7 +436,7 @@ footer {
   font-weight: bold;
   font-size: 16px;
   z-index: 1000;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
   transition: 0.3s;
 }
 
