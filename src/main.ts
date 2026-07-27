@@ -5,6 +5,7 @@ import banner from './assets/banner.jpg'
 import printingPress from './assets/printing-press.jpg'
 import weddingCards from './assets/wedding-cards.jpg'
 import heroImg from './assets/hero.png'
+import anytypePrinting from './assets/anytype-printing.jpg'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
@@ -118,6 +119,12 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <img src="${panaflex}" alt="Panaflex">
       <h3>Panaflex</h3>
       <p>High-quality panaflex and outdoor branding.</p>
+    </div>
+
+    <div class="work">
+      <img src="${anytypePrinting}" alt="Any Type of Printing">
+      <h3>Any Type of Printing</h3>
+      <p>From business essentials to custom projects, we handle all kinds of printing needs.</p>
     </div>
 
   </div>
